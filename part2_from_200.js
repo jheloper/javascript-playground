@@ -5,7 +5,9 @@
 // example_template_string();
 // example_arithmetic();
 // example_comparison();
-example_logical();
+// example_logical();
+example_ternary();
+example_bit();
 
 function example_nan_infinity() {
   console.log(Infinity);
@@ -109,4 +111,27 @@ function example_logical() {
   console.log(true || false);
   console.log(false || false);
   console.log("text" == "text" || 5 == 10);
+}
+
+function example_ternary() {
+  var condition = 5 > 10;
+  condition ? console.log("Left") : console.log("Right");
+  var result = condition ? (
+    console.log("ternary's first expression!"),
+    "expression 1"
+  ) : (
+    console.log("ternary's second expression!"),
+    "expression 2"
+  );
+  console.log(result);
+}
+
+function example_bit() {
+  console.log(14 & 11);
+  console.log(~14);
+  console.log(14 | 11);
+  console.log(14 ^ 11);
+  console.log(2 << 2);
+  console.log(14 >> 1);
+  console.log(14 >>> 2);
 }
