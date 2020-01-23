@@ -6,8 +6,11 @@
 // example_arithmetic();
 // example_comparison();
 // example_logical();
-example_ternary();
-example_bit();
+// example_ternary();
+// example_bit();
+example_type_casting();
+example_array();
+example_object();
 
 function example_nan_infinity() {
   console.log(Infinity);
@@ -127,6 +130,8 @@ function example_ternary() {
 }
 
 function example_bit() {
+  var num = 14;
+  console.log(num.toString(2)); // 10진수를 2진수로 변환하는 법
   console.log(14 & 11);
   console.log(~14);
   console.log(14 | 11);
@@ -134,4 +139,58 @@ function example_bit() {
   console.log(2 << 2);
   console.log(14 >> 1);
   console.log(14 >>> 2);
+}
+
+function example_type_casting() {
+  console.log("5" + 1);
+  console.log("5" - 1);
+  console.log("5" * 1);
+  console.log("There is " + 5);
+  console.log("Five" * 2);
+
+  var str = 5 + "1";
+  console.log(str);
+  console.log(typeof str);
+
+  var num = +str;
+  console.log(num);
+  console.log(typeof num);
+
+  str = String(num);
+  console.log(str);
+  console.log(typeof str);
+
+  num = Number(str);
+  console.log(num);
+  console.log(typeof num);
+}
+
+function example_array() {
+  var arr = [1, 2, 3, 4, 5];
+  console.log(arr.length);
+  console.log(arr[0]);
+  console.log(arr[2]);
+  console.log(arr[8]);
+}
+
+function example_object() {
+
+  var family = {
+    "address": "Seoul",
+    members: {},
+    addFamily: function(age, name, role) {
+      this.members[role] = {
+        age: age,
+        name: name
+      }
+    },
+    getHeadCount: function() {
+      return Object.keys(this.members).length;
+    }
+  }
+
+  family.addFamily(30, "chloe", "aunt");
+  family.addFamily(3, "lyn", "niece");
+  family.addFamily(10, "dangdangi", "dog");
+  console.log(family.getHeadCount());
 }
