@@ -10,7 +10,9 @@
 // example_bit();
 // example_type_casting();
 // example_array();
-example_object();
+// example_object();
+example_shorthand_property();
+example_computed_property();
 
 function example_nan_infinity() {
   console.log(Infinity);
@@ -194,6 +196,7 @@ function example_object() {
   family.addFamily(10, "dangdangi", "dog");
   console.log(family.getHeadCount());
 
+  // 객체 속성 접근, 추가, 수정, 삭제
   var printMembers = function() {
     var members = family.members;
     for (role in members) {
@@ -210,4 +213,38 @@ function example_object() {
   delete members["dog"];
 
   printMembers();
+}
+
+function example_shorthand_property() {
+  // ES6 단축 속성명
+  var address = "Seoul";
+  var members = {};
+  var addFamily = function(age, name, role) {
+    this.members[role] = {age, name};
+  }
+  var getHeadCount = function() {
+    return Object.keys(this.members).length;
+  }
+
+  var family = {address, members, addFamily, getHeadCount};
+
+  family.addFamily(30, "chloe", "aunt");
+  family.addFamily(3, "lyn", "niece");
+  family.addFamily(10, "dangdangi", "dog");
+  console.log(family.getHeadCount());
+}
+
+function example_computed_property() {
+  var obj = {};
+  for (var i = 0; i < 4; i++) {
+    obj["key" + i] = i;
+  }
+  console.log(obj);
+
+  var profile = "chloe:30";
+  var person = {
+    [profile]: true,
+    [profile.split(":")[0]]: profile.split(":")[1]
+  };
+  console.log(person);
 }
