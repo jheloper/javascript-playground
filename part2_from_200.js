@@ -13,7 +13,8 @@
 // example_object();
 // example_shorthand_property();
 // example_computed_property();
-example_destructuring_assignment();
+// example_destructuring_assignment();
+example_symbol();
 
 function example_nan_infinity() {
   console.log(Infinity);
@@ -286,4 +287,32 @@ function example_destructuring_assignment() {
   [a, , , , , f] = getArr();
   console.log(`3) a >>> ${a}`);
   console.log(`3) f >>> ${f}`);
+}
+
+function example_symbol() {
+  const symbol = Symbol();
+  const hello = Symbol("hello");
+
+  console.log(Number(3) === Number(3));
+  console.log(Symbol("symbol") === Symbol("symbol"));
+  console.log(Symbol() === Symbol());
+  console.log(typeof Symbol());
+
+  const nationality = Symbol("nationality");
+  const user = {
+    name: "jay"
+  };
+  user[nationality] = "korean";
+  console.log(user[nationality]);
+
+  for (let key in user) {
+    console.log(key);
+  }
+  console.log(Object.keys(user));
+  console.log(Object.getOwnPropertyNames(user));
+  console.log(JSON.stringify(user));
+
+  const symbolProperties = Object.getOwnPropertySymbols(user);
+  console.log(symbolProperties);
+  console.log(user[symbolProperties[0]]);
 }
