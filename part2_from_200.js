@@ -15,6 +15,8 @@
 // example_computed_property();
 // example_destructuring_assignment();
 example_symbol();
+example_function();
+example_exception();
 
 function example_nan_infinity() {
   console.log(Infinity);
@@ -315,4 +317,37 @@ function example_symbol() {
   const symbolProperties = Object.getOwnPropertySymbols(user);
   console.log(symbolProperties);
   console.log(user[symbolProperties[0]]);
+}
+
+function example_function() {
+  // 함수 표현식
+  var greeting_expression = function(name) {
+    console.log("Hi, " + name);
+  }
+
+  // 함수 선언문
+  function greeting_declaration(name) {
+    console.log("Hi, " + name);
+  }
+
+  greeting_expression("Chloe");
+  greeting_declaration("Chloe");
+}
+
+function example_exception() {
+  function checkNumber(val) {
+    if (typeof val !== "number") {
+      throw "Invalid value";
+    }
+    console.log("value is number!");
+  }
+
+  try {
+    checkNumber(100);
+    checkNumber("Wrong type");
+  } catch (e) {
+    console.log(`Error! >>> ${e}`);
+  } finally {
+    console.log("complete!");
+  }
 }
