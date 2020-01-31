@@ -14,9 +14,11 @@
 // example_shorthand_property();
 // example_computed_property();
 // example_destructuring_assignment();
-example_symbol();
-example_function();
-example_exception();
+// example_symbol();
+// example_function();
+// example_exception();
+example_arguments();
+example_default_parameter();
 
 function example_nan_infinity() {
   console.log(Infinity);
@@ -350,4 +352,44 @@ function example_exception() {
   } finally {
     console.log("complete!");
   }
+}
+
+function example_arguments() {
+  function sum() {
+    var total = 0;
+    for (var i = 0; i < arguments.length; i++) {
+      total += arguments[i];
+    }
+    console.log(arguments instanceof Array);
+    return total;
+  }
+
+  var sumOf1to3 = sum(1, 2, 3);
+  console.log(sumOf1to3);
+
+  function testArgs() {
+    var newArr = Array.prototype.slice.call(arguments);
+    console.log(newArr);
+    console.log(newArr.indexOf("b"));
+    // arguments 객체는 배열이 아니기 때문에 아래 코드는 에러 발생
+    // console.log(arguments.indexOf("b"));
+  }
+
+  testArgs("a", "b");
+}
+
+function example_default_parameter() {
+  function drawChart(width = 200, height = 400) {
+    console.log(`draw chart ${width} X ${height}`);
+  }
+  
+  drawChart(100);
+  drawChart();
+
+  function drawChart2(width = 200, height = width / 2) {
+    console.log(`draw chart2 ${width} X ${height}`);
+  }
+
+  drawChart2(300);
+  drawChart2();
 }
