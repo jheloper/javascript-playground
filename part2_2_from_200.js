@@ -1,5 +1,6 @@
-example_scope();
-example_hoisting();
+// example_scope();
+// example_hoisting();
+example_let();
 
 function example_scope() {
     var a = 10;
@@ -42,5 +43,22 @@ function example_hoisting() {
     hello2();
     var hello2 = function() {
         console.log("Hello!");
+    }
+}
+
+function example_let() {
+    if (true) {
+        var functionScopeValue = "global";
+        let blockScopeValue = "local";
+    }
+    console.log(functionScopeValue);
+    // ReferenceError
+    // console.log(blockScopeValue);
+
+    let value = "outside value";
+    if (true) {
+        // ReferenceError
+        // console.log(value);
+        let value = "inside value";
     }
 }
