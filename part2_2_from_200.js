@@ -1,6 +1,7 @@
 // example_scope();
 // example_hoisting();
 example_let();
+example_const();
 
 function example_scope() {
     var a = 10;
@@ -61,4 +62,27 @@ function example_let() {
         // console.log(value);
         let value = "inside value";
     }
+}
+
+function example_const() {
+    const URL = "http://js.com";
+    // 아래 할당문은 오류 발생
+    // URL = "http://js.com";
+
+    if (true) {
+        const URL2 = "http://js.com";
+    }
+
+    // ReferenceError
+    // console.log(URL2);
+
+    const CONST_USER = { name: "jay", age: 30 };
+    console.log(CONST_USER.name, CONST_USER.age);
+
+    CONST_USER.name = "jay2";
+    CONST_USER.age = 31;
+    console.log(CONST_USER.name, CONST_USER.age);
+
+    // 아래 할당문은 오류 발생
+    // CONST_USER = { name: "boo" };
 }
