@@ -1,7 +1,9 @@
 // example_scope();
 // example_hoisting();
-example_let();
-example_const();
+// example_let();
+// example_const();
+example_scope_chain();
+example_closure();
 
 function example_scope() {
     var a = 10;
@@ -85,4 +87,49 @@ function example_const() {
 
     // 아래 할당문은 오류 발생
     // CONST_USER = { name: "boo" };
+}
+
+function example_scope_chain() {
+    var person = "harry";
+
+    function print() {
+        var person2 = "jay";
+
+        function innerPrint() {
+            console.log(person);
+            console.log(person2);
+        }
+
+        innerPrint();
+
+        console.log("print finished");
+    }
+
+    print();
+    console.log("finished");
+}
+
+function example_closure() {
+    
+    function createCountClosure() {
+        let count = 0;
+        return {
+            increase: function() {
+                count++;
+            },
+            getCount: function() {
+                return count;
+            }
+        };
+    }
+
+    const counter1 = createCountClosure();
+    const counter2 = createCountClosure();
+
+    counter1.increase();
+    counter1.increase();
+    console.log("counter 1 value is : " + counter1.getCount());
+
+    counter2.increase();
+    console.log("counter 2 value is : " + counter2.getCount());
 }
