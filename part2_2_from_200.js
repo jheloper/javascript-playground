@@ -2,8 +2,9 @@
 // example_hoisting();
 // example_let();
 // example_const();
-example_scope_chain();
-example_closure();
+// example_scope_chain();
+// example_closure();
+example_property_descriptor();
 
 function example_scope() {
     var a = 10;
@@ -132,4 +133,50 @@ function example_closure() {
 
     counter2.increase();
     console.log("counter 2 value is : " + counter2.getCount());
+}
+
+function example_property_descriptor() {
+    let user = {
+        name: "Jim"
+    };
+    let descriptor = Object.getOwnPropertyDescriptor(user, "name");
+    console.log(descriptor);
+
+    let user2 = {};
+    Object.defineProperty(user2, "name", {
+        value: "Tom",
+        enumerable: true,
+        configurable: true,
+        writable: false
+    });
+    console.log(user2.name);
+    user2.name = "Bob";
+    console.log(user2.name);
+
+    let user3 = {
+        name: "Jane",
+        toString() {
+            return this.name;
+        }
+    };
+    Object.defineProperty(user3, "toString", {
+        enumerable: false
+    });
+    for (let key in user3) {
+        console.log(key);
+    }
+
+    let user4 = {};
+    Object.defineProperty(user4, "name", {
+        value: "Susan",
+        enumerable: true,
+        configurable: false
+    });
+    delete user4.name;
+    console.log(user4);
+    // 위에서 name 속성을 configurable = false로 설정했기 때문에
+    // 아래 코드는 속성 기술자로 재설정 불가, TypeError 발생.
+    // Object.defineProperty(user4, "name", {
+    //     writable: true
+    // });
 }
