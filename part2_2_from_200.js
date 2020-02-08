@@ -5,9 +5,10 @@
 // example_scope_chain();
 // example_closure();
 // example_property_descriptor();
-example_getter_setter();
-example_arrow_function();
-example_oop();
+// example_getter_setter();
+// example_arrow_function();
+// example_oop();
+example_constructor();
 
 function example_scope() {
   var a = 10;
@@ -273,7 +274,7 @@ function example_oop() {
       this.exp++;
     }
   };
-  
+
   const harry = {
       name: "Harry",
       age: 10,
@@ -293,4 +294,26 @@ function example_oop() {
   harry.gainExp();
   console.log(harry);
   console.log(jane);
+}
+
+function example_constructor() {
+  function Teacher(name, age, subject) {
+    this.name = name;
+    this.age = age;
+    this.subject = subject;
+    this.teach = function(student) {
+      console.log("student: " + student + ", subject: " + subject);
+    };
+  }
+
+  const jay = new Teacher("Jay", 30, "Javascript");
+  console.log(jay);
+  jay.teach("Bob");
+
+  console.log(jay.constructor);
+  console.log(jay instanceof Teacher);
+
+  const jay2 = Teacher("Jay", 30, "Javascript");
+  console.log(jay2);
+  console.log(age);
 }
