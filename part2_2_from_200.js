@@ -8,7 +8,8 @@
 // example_getter_setter();
 // example_arrow_function();
 // example_oop();
-example_constructor();
+// example_constructor();
+example_inheritance_prototype();
 
 function example_scope() {
   var a = 10;
@@ -316,4 +317,37 @@ function example_constructor() {
   const jay2 = Teacher("Jay", 30, "Javascript");
   console.log(jay2);
   console.log(age);
+}
+
+function example_inheritance_prototype() {
+  function Storage() {
+    this.dataStore = {};
+  }
+
+  Storage.prototype.put = function(key, data) {
+    this.dataStore[key] = data;
+  }
+
+  Storage.prototype.getData = function(key) {
+    return this.dataStore[key];
+  }
+
+  const productStorage = new Storage();
+  productStorage.put("id001", { name: "Keyboard", price: 2000 });
+  console.log(productStorage.getData("id001"));
+
+  function RemovableStorage() {
+    Storage.call(this);
+  }
+
+  RemovableStorage.prototype = Object.create(Storage.prototype);
+
+  RemovableStorage.prototype.removeAll = function() {
+    this.dataStore = {};
+  }
+  
+  const productStorage2 = new RemovableStorage();
+  productStorage2.put("id001", { name: "Keyboard", price: 2000 });
+  productStorage2.removeAll();
+  console.log(productStorage2.getData("id001"));
 }
