@@ -9,7 +9,9 @@
 // example_arrow_function();
 // example_oop();
 // example_constructor();
-example_inheritance_prototype();
+// example_inheritance_prototype();
+example_class();
+example_inheritance_class();
 
 function example_scope() {
   var a = 10;
@@ -350,4 +352,54 @@ function example_inheritance_prototype() {
   productStorage2.put("id001", { name: "Keyboard", price: 2000 });
   productStorage2.removeAll();
   console.log(productStorage2.getData("id001"));
+}
+
+function example_class() {
+  class Cart {
+    constructor() {
+      this.store = {};
+    }
+
+    addProduct(product) {
+      this.store[product.id] = product;
+    }
+
+    getProduct(id) {
+      return this.store[id];
+    }
+  }
+
+  const cart1 = new Cart();
+  cart1.addProduct({ id: 1, name: "Laptop" });
+  console.log(cart1.store);
+
+  const product = cart1.getProduct(1);
+  console.log(product);
+}
+
+function example_inheritance_class() {
+  class Chart {
+    constructor(width, height) {
+      this.width = width;
+      this.height = height;
+    }
+
+    drawLine() {
+      console.log("draw line");
+    }
+  }
+
+  class BarChart extends Chart {
+    constructor(width, height) {
+      super(width, height);
+    }
+
+    draw() {
+      this.drawLine();
+      console.log(`draw ${this.width} X ${this.height} barChart`);
+    }
+  }
+
+  const barChart1 = new BarChart(100, 100);
+  barChart1.draw();
 }
