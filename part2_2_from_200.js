@@ -12,7 +12,8 @@
 // example_inheritance_prototype();
 // example_class();
 // example_inheritance_class();
-example_class_static();
+// example_class_static();
+example_this();
 
 function example_scope() {
   var a = 10;
@@ -450,4 +451,77 @@ function example_class_static() {
   const product1 = new ProductWithCode("001");
   console.log(ProductWithCode.CODE_PREFIX);
   console.log(product1.code);
+}
+
+function example_this() {
+  this.valueA = "A";
+  console.log(valueA);
+  valueB = "B";
+  console.log(this.valueB);
+
+  function checkThis() {
+    console.log(this);
+  }
+
+  function checkThis2() {
+    "use strict";
+    console.log(this);
+  }
+
+  checkThis();
+  checkThis2();
+  
+  function Product(name, price) {
+    this.name = name;
+    this.price = price;
+  }
+
+  const product1 = Product("bag", 2000);
+  // 브라우저 환경에서 실행하지 않으면 window가 undefined
+  // console.log(window.name);
+  // console.log(window.price);
+
+  console.log(global.name);
+  console.log(global.price);
+
+  const product2 = {
+    name: "bag2",
+    price: 3000,
+    getVAT() {
+      return this.price / 10;
+    }
+  }
+
+  const valueOfProduct2 = product2.getVAT();
+  console.log(valueOfProduct2);
+
+  const calVAT = product2.getVAT;
+  const VAT2 = calVAT();
+  console.log(VAT2);
+
+  const newCalVAT = calVAT.bind(product2);
+  const VAT3 = newCalVAT();
+  console.log(VAT3);
+
+  const counter1 = {
+    count: 0,
+    addAfter1Sec() {
+      setTimeout(function() {
+        this.count += 1;
+        console.log(this.count);
+      }, 1000);
+    }
+  }
+  counter1.addAfter1Sec();
+
+  const counter2 = {
+    count: 0,
+    addAfter1Sec() {
+      setTimeout(() => {
+        this.count += 1;
+        console.log(this.count);
+      }, 1000);
+    }
+  }
+  counter2.addAfter1Sec();
 }
