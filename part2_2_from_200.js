@@ -13,7 +13,8 @@
 // example_class();
 // example_inheritance_class();
 // example_class_static();
-example_this();
+// example_this();
+example_module();
 
 function example_scope() {
   var a = 10;
@@ -524,4 +525,18 @@ function example_this() {
     }
   }
   counter2.addAfter1Sec();
+}
+
+function example_module() {
+  var namespaceA = (function() {
+    var privateVariable = "private variable";
+    return {
+      publicApi: function() {
+        console.log("can access " + privateVariable);
+      }
+    }
+  })();
+  
+  console.log(namespaceA.privateVariable);
+  namespaceA.publicApi();
 }
