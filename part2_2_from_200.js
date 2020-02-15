@@ -1,3 +1,5 @@
+import {hello} from "./test_module.js";
+
 // example_scope();
 // example_hoisting();
 // example_let();
@@ -14,7 +16,8 @@
 // example_inheritance_class();
 // example_class_static();
 // example_this();
-example_module();
+// example_module();
+example_module_import();
 
 function example_scope() {
   var a = 10;
@@ -539,4 +542,8 @@ function example_module() {
   
   console.log(namespaceA.privateVariable);
   namespaceA.publicApi();
+}
+
+function example_module_import() {
+  hello("es6 module");
 }
