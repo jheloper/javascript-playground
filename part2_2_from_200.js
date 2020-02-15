@@ -1,5 +1,3 @@
-import {hello} from "./test_module.js";
-
 // example_scope();
 // example_hoisting();
 // example_let();
@@ -544,6 +542,8 @@ function example_module() {
   namespaceA.publicApi();
 }
 
-function example_module_import() {
+import {hello} from "./test_module.js";
+
+function example_module_import() {  
   hello("es6 module");
 }
