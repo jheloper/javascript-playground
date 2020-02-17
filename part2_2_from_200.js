@@ -15,7 +15,8 @@
 // example_class_static();
 // example_this();
 // example_module();
-example_module_import();
+// example_module_import();
+example_module_default();
 
 function example_scope() {
   var a = 10;
@@ -546,4 +547,11 @@ import {hello} from "./test_module.js";
 
 function example_module_import() {  
   hello("es6 module");
+}
+
+import Hello from "./test_module_2.js";
+
+function example_module_default() {
+  const koreanHi = new Hello("안녕하세요. ");
+  koreanHi.hi("Kim");
 }
