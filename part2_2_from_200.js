@@ -16,7 +16,8 @@
 // example_this();
 // example_module();
 // example_module_import();
-example_module_default();
+// example_module_default();
+example_module_export_mutiple();
 
 function example_scope() {
   var a = 10;
@@ -554,4 +555,16 @@ import Hello from "./test_module_2.js";
 function example_module_default() {
   const koreanHi = new Hello("안녕하세요. ");
   koreanHi.hi("Kim");
+}
+
+import {add, Person, version, personA} from "./test_module_3.js";
+
+function example_module_export_mutiple() {
+  const result = add(1, 2);
+  const peter = new Person("Peter");
+
+  console.log(result);
+  console.log(peter.name);
+  console.log(version);
+  console.log(personA.name);
 }
