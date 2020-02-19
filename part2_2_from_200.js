@@ -17,7 +17,8 @@
 // example_module();
 // example_module_import();
 // example_module_default();
-example_module_export_mutiple();
+// example_module_export_mutiple();
+example_modult_etc();
 
 function example_scope() {
   var a = 10;
@@ -544,7 +545,7 @@ function example_module() {
   namespaceA.publicApi();
 }
 
-import {hello} from "./test_module.js";
+import {hello} from "./test_module_1.js";
 
 function example_module_import() {  
   hello("es6 module");
@@ -567,4 +568,26 @@ function example_module_export_mutiple() {
   console.log(peter.name);
   console.log(version);
   console.log(personA.name);
+}
+
+import {version as moduleVersion} from "./version.js";
+import * as adds from "./add.js";
+import "./sideeffect.js";
+import {value} from "./value.js";
+
+function example_modult_etc() {
+  const version = "v0";
+  console.log(moduleVersion);
+
+  console.log(adds.version);
+  const added = adds.default(1, 2);
+  console.log(added);
+
+  hello("Larry");
+
+  console.log(value);
+
+  setTimeout(() => {
+    console.log(value);
+  }, 2000);
 }
