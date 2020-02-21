@@ -126,6 +126,7 @@ function example_logical() {
 }
 
 function example_ternary() {
+  // 삼항연산자
   var condition = 5 > 10;
   condition ? console.log("Left") : console.log("Right");
   var result = condition ? (
@@ -139,6 +140,7 @@ function example_ternary() {
 }
 
 function example_bit() {
+  // 비트연산자
   var num = 14;
   console.log(num.toString(2)); // 10진수를 2진수로 변환하는 법
   console.log(14 & 11);
@@ -295,12 +297,15 @@ function example_destructuring_assignment() {
 }
 
 function example_symbol() {
+  // 심볼형
+  // 심볼은 함수 호출을 통해 생성 가능하며, new 키워드를 통한 호출은 에러 발생.
   const symbol = Symbol();
   const hello = Symbol("hello");
 
+  // Symbol()은 항상 고유값을 반환
   console.log(Number(3) === Number(3));
-  console.log(Symbol("symbol") === Symbol("symbol"));
-  console.log(Symbol() === Symbol());
+  console.log(Symbol("symbol") === Symbol("symbol")); // false
+  console.log(Symbol() === Symbol()); // false
   console.log(typeof Symbol());
 
   const nationality = Symbol("nationality");
