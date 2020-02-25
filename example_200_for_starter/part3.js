@@ -1,5 +1,7 @@
 // example_standard_builtin_object();
-example_typeof_instanceof();
+// example_typeof_instanceof();
+example_number_isNaN();
+example_number_isInteger();
 
 function example_standard_builtin_object() {
     const str = new String("Javascript");
@@ -62,4 +64,54 @@ function example_typeof_instanceof() {
     console.log(func instanceof Function);
     console.log(empty instanceof Object);
     console.log(notCalled instanceof undefined);
+}
+
+function example_number_isNaN() {
+    console.log(Number.isNaN(NaN));
+    console.log(Number.isNaN(undefined));
+    console.log(Number.isNaN("Is it number?"));
+    console.log(Number.isNaN(0));
+    console.log(Number.isNaN(null));
+
+    console.log(Number.isNaN(-1));
+    console.log(Number.isNaN(0/0));
+    console.log(Number.isNaN(new Date()));
+    console.log(Number.isNaN(new Date().toString));
+    console.log(Number.isNaN(Number.isNaN("Infinity")));
+
+    function verifyNumber(n) {
+        if (!n || Number.isNaN(n)) {
+            return 0;
+        }
+        return n;
+    }
+
+    const num1 = verifyNumber(15);
+    const num2 = verifyNumber(undefined);
+    const num3 = verifyNumber(null);
+    const num4 = verifyNumber(NaN);
+    console.log(num1 + num2 + num3 + num4);
+}
+
+function example_number_isInteger() {
+    console.log(Number.isInteger(0));
+    console.log(Number.isInteger(-1));
+    console.log(Number.isInteger(77777777777777777777777777));
+    console.log(Number.isInteger(null));
+    console.log(Number.isInteger(0/0));
+    console.log(Number.isInteger("Infinity"));
+    console.log(Number.isInteger(true));
+    console.log(Number.isInteger({}));
+
+    function verifyInteger(n) {
+        if (!Number.isInteger(n)) {
+            return 0;
+        }
+        return n;
+    }
+
+    const num1 = verifyInteger(15);
+    const num2 = verifyInteger(Infinity);
+    const num3 = verifyInteger(0.05);
+    console.log(num1, num2, num3);
 }
