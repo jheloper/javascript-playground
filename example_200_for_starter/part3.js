@@ -2,7 +2,8 @@
 // example_typeof_instanceof();
 // example_number_isNaN();
 // example_number_isInteger();
-example_array_isArray();
+// example_array_isArray();
+example_parseInt_parseFloat();
 
 function example_standard_builtin_object() {
     const str = new String("Javascript");
@@ -131,4 +132,17 @@ function example_array_isArray() {
 
     const students = ["Jun", "Ali", "Murry", "Toby"];
     callRoll(students);
+}
+
+function example_parseInt_parseFloat() {
+
+    console.log(parseInt("15"));
+    console.log(parseInt("15", 10));
+    console.log(parseInt("15", 2));
+    console.log(parseInt(5.15));
+    console.log(parseInt("5.15"));
+
+    console.log(parseFloat(5.55));
+    console.log(parseFloat("5.55"));
+    console.log(parseFloat("5.55 number value"));
 }
