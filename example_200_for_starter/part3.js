@@ -1,7 +1,8 @@
 // example_standard_builtin_object();
 // example_typeof_instanceof();
-example_number_isNaN();
-example_number_isInteger();
+// example_number_isNaN();
+// example_number_isInteger();
+example_array_isArray();
 
 function example_standard_builtin_object() {
     const str = new String("Javascript");
@@ -114,4 +115,20 @@ function example_number_isInteger() {
     const num2 = verifyInteger(Infinity);
     const num3 = verifyInteger(0.05);
     console.log(num1, num2, num3);
+}
+
+function example_array_isArray() {
+
+    function callRoll(students) {
+        if(!Array.isArray(students)) {
+            return;
+        }
+
+        students.forEach((student) => {
+            console.log(`Are you here, ${student}`);
+        });
+    }
+
+    const students = ["Jun", "Ali", "Murry", "Toby"];
+    callRoll(students);
 }
