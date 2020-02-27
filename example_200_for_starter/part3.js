@@ -3,7 +3,10 @@
 // example_number_isNaN();
 // example_number_isInteger();
 // example_array_isArray();
-example_parseInt_parseFloat();
+// example_parseInt_parseFloat();
+example_string_trim();
+example_string_slice();
+example_string_substring();
 
 function example_standard_builtin_object() {
     const str = new String("Javascript");
@@ -145,4 +148,46 @@ function example_parseInt_parseFloat() {
     console.log(parseFloat(5.55));
     console.log(parseFloat("5.55"));
     console.log(parseFloat("5.55 number value"));
+}
+
+function example_string_trim() {
+    const sentences = [
+        "    ABC abc", "ABC abc    ", 
+        ` first
+        second third
+                forth
+            sentence`
+    ];
+
+    const filterSentences = (sentences) => {
+        const filterd = [];
+        sentences.forEach(s => {
+            filterd.push(s.trim());
+        })
+        return filterd;
+    }
+
+    console.log(filterSentences(sentences));
+}
+
+function example_string_slice() {
+    const sentence = "The sun will shine on us again";
+    
+    console.log(sentence.slice(13));
+    console.log(sentence.slice(13, 24));
+    console.log(sentence.slice(0));
+    console.log(sentence.slice(0, -23));
+    console.log(sentence.slice(50));
+    console.log(sentence.slice(7, 2));
+}
+
+function example_string_substring() {
+    const sentence = "This will be the end of Wakanda";
+
+    console.log(sentence.substring(13));
+    console.log(sentence.substring(13, 20));
+    console.log(sentence.substring(0));
+    console.log(sentence.substring(0, -20));
+    console.log(sentence.substring(50));
+    console.log(sentence.substring(20, 13));
 }
