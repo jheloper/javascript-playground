@@ -4,9 +4,10 @@
 // example_number_isInteger();
 // example_array_isArray();
 // example_parseInt_parseFloat();
-example_string_trim();
-example_string_slice();
+// example_string_trim();
+// example_string_slice();
 example_string_substring();
+example_string_length();
 
 function example_standard_builtin_object() {
     const str = new String("Javascript");
@@ -190,4 +191,23 @@ function example_string_substring() {
     console.log(sentence.substring(0, -20));
     console.log(sentence.substring(50));
     console.log(sentence.substring(20, 13));
+
+    const sentence2 = "Wakanda Forever!!!";
+    console.log(sentence2.substr(8));
+    console.log(sentence2.substr(8, 7));
+    console.log(sentence2.substr(0));
+    console.log(sentence2.substr(-10));
+    console.log(sentence2.substr(0, -3));
+    console.log(sentence2.substr(30));
+    console.log(sentence2.substr(0, 30));
+}
+
+function example_string_length() {
+    const arr = ["short", "long sentence, it is not appropriate"];
+
+    arr.forEach(str => {
+        if (str.length < 10) {
+            console.log(str);
+        }
+    });
 }
