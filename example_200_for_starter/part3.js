@@ -6,8 +6,11 @@
 // example_parseInt_parseFloat();
 // example_string_trim();
 // example_string_slice();
-example_string_substring();
-example_string_length();
+// example_string_substring();
+// example_string_length();
+example_toString();
+example_string_concat();
+example_charAt();
 
 function example_standard_builtin_object() {
     const str = new String("Javascript");
@@ -41,7 +44,7 @@ function example_typeof_instanceof() {
     const numObj = new Number(200);
     const bool = true;
     const boolObj = new Boolean(true);
-    const func = function() {};
+    const func = function () {};
     const arr = [10, 200, 4000];
     const obj = { a1: "test" };
     const empty = null;
@@ -80,7 +83,7 @@ function example_number_isNaN() {
     console.log(Number.isNaN(null));
 
     console.log(Number.isNaN(-1));
-    console.log(Number.isNaN(0/0));
+    console.log(Number.isNaN(0 / 0));
     console.log(Number.isNaN(new Date()));
     console.log(Number.isNaN(new Date().toString));
     console.log(Number.isNaN(Number.isNaN("Infinity")));
@@ -104,7 +107,7 @@ function example_number_isInteger() {
     console.log(Number.isInteger(-1));
     console.log(Number.isInteger(77777777777777777777777777));
     console.log(Number.isInteger(null));
-    console.log(Number.isInteger(0/0));
+    console.log(Number.isInteger(0 / 0));
     console.log(Number.isInteger("Infinity"));
     console.log(Number.isInteger(true));
     console.log(Number.isInteger({}));
@@ -123,9 +126,8 @@ function example_number_isInteger() {
 }
 
 function example_array_isArray() {
-
     function callRoll(students) {
-        if(!Array.isArray(students)) {
+        if (!Array.isArray(students)) {
             return;
         }
 
@@ -139,7 +141,6 @@ function example_array_isArray() {
 }
 
 function example_parseInt_parseFloat() {
-
     console.log(parseInt("15"));
     console.log(parseInt("15", 10));
     console.log(parseInt("15", 2));
@@ -153,27 +154,28 @@ function example_parseInt_parseFloat() {
 
 function example_string_trim() {
     const sentences = [
-        "    ABC abc", "ABC abc    ", 
+        "    ABC abc",
+        "ABC abc    ",
         ` first
         second third
                 forth
-            sentence`
+            sentence`,
     ];
 
     const filterSentences = (sentences) => {
         const filterd = [];
-        sentences.forEach(s => {
+        sentences.forEach((s) => {
             filterd.push(s.trim());
-        })
+        });
         return filterd;
-    }
+    };
 
     console.log(filterSentences(sentences));
 }
 
 function example_string_slice() {
     const sentence = "The sun will shine on us again";
-    
+
     console.log(sentence.slice(13));
     console.log(sentence.slice(13, 24));
     console.log(sentence.slice(0));
@@ -205,9 +207,48 @@ function example_string_substring() {
 function example_string_length() {
     const arr = ["short", "long sentence, it is not appropriate"];
 
-    arr.forEach(str => {
+    arr.forEach((str) => {
         if (str.length < 10) {
             console.log(str);
         }
     });
+}
+
+function example_toString() {
+    const num = 5;
+    const bool = true;
+    const str = "String value";
+    const arr = [1, 2, 3];
+    const obj = { a: 15 };
+
+    console.log(num.toString());
+    console.log(bool.toString());
+    console.log(str.toString());
+    console.log(arr.toString());
+    console.log(obj.toString());
+
+    num.__proto__.toString = () => {
+        return "override toString";
+    };
+    console.log(num.toString());
+}
+
+function example_string_concat() {
+    const str1 = "Good afternoon";
+    const str2 = ", Good evening";
+    const str3 = ", and Good night!";
+    const str4 = " - The Truman Show, 1998";
+    console.log(str1.concat(str2, str3, str4));
+}
+
+function example_charAt() {
+    const str =
+        "Good afternoon, Good evening, and Good night! " +
+        "- The Truman Show, 1998";
+
+    console.log(str.charAt(0));
+    console.log(str.charAt(5));
+    console.log(str.charAt(14));
+    console.log(str.length);
+    console.log(str.charAt(500));
 }
