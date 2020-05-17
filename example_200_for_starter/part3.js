@@ -8,9 +8,10 @@
 // example_string_slice();
 // example_string_substring();
 // example_string_length();
-example_toString();
-example_string_concat();
-example_charAt();
+// example_toString();
+// example_string_concat();
+// example_charAt();
+example_string_indexOf();
 
 function example_standard_builtin_object() {
     const str = new String("Javascript");
@@ -251,4 +252,26 @@ function example_charAt() {
     console.log(str.charAt(14));
     console.log(str.length);
     console.log(str.charAt(500));
+}
+
+function example_string_indexOf() {
+    const str = "Carpe diem, seize the day";
+
+    console.log(`"e" is in ${str.indexOf("e")} index.`);
+    console.log(`"C" is in ${str.indexOf("C")} index.`);
+    console.log(`"c" is in ${str.indexOf("c")} index.`);
+    console.log(`", se" is in ${str.indexOf(", se")} index.`);
+
+    const arr = ["Carpe", "diem", "seize", "the", "day"];
+    const howManyHasE = (arr) => {
+        let count = 0;
+        arr.forEach((str) => {
+            if (str.indexOf("e") > -1) {
+                count++;
+            }
+        });
+        return count;
+    }
+
+    console.log(`The total count of "e" in the ${arr} is ${howManyHasE(arr)}.`);
 }
