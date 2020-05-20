@@ -11,7 +11,10 @@
 // example_toString();
 // example_string_concat();
 // example_charAt();
-example_string_indexOf();
+// example_string_indexOf();
+example_string_includes();
+example_string_toLowerCase_and_toUpperCase();
+example_array_from();
 
 function example_standard_builtin_object() {
     const str = new String("Javascript");
@@ -274,4 +277,29 @@ function example_string_indexOf() {
     }
 
     console.log(`The total count of "e" in the ${arr} is ${howManyHasE(arr)}.`);
+}
+
+function example_string_includes() {
+    const str = "Make your lives extradordinary";
+
+    console.log(str.includes("Make"));
+    console.log(str.includes("Make", 1));
+}
+
+function example_string_toLowerCase_and_toUpperCase() {
+    console.log("Find Your Own Voice".toLowerCase());
+    console.log("Find Your Own Voice".toUpperCase());
+
+    const value = "Find Your Own Voice";
+    console.log(value.toLowerCase() === value.toUpperCase());
+}
+
+function example_array_from() {
+    const str = "12345678";
+
+    const distributedArr = Array.from(str);
+    console.log(distributedArr);
+
+    const modifiedArr = Array.from(distributedArr, el => el * 2);
+    console.log(modifiedArr);
 }
