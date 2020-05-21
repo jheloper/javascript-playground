@@ -12,9 +12,10 @@
 // example_string_concat();
 // example_charAt();
 // example_string_indexOf();
-example_string_includes();
-example_string_toLowerCase_and_toUpperCase();
-example_array_from();
+// example_string_includes();
+// example_string_toLowerCase_and_toUpperCase();
+// example_array_from();
+example_string_split();
 
 function example_standard_builtin_object() {
     const str = new String("Javascript");
@@ -302,4 +303,18 @@ function example_array_from() {
 
     const modifiedArr = Array.from(distributedArr, el => el * 2);
     console.log(modifiedArr);
+}
+
+function example_string_split() {
+    const capitals = `Prague,Czech Republic
+Copenhagen,Denmark
+Paris,France
+Madrid,Spain
+Rome,Italy`
+
+    capitals.split("\n").forEach(s => {
+        const capital = s.split(",")[0];
+        const country = s.split(",")[1];
+        console.log(`${capital} is in ${country}`);
+    });
 }
