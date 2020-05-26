@@ -15,7 +15,9 @@
 // example_string_includes();
 // example_string_toLowerCase_and_toUpperCase();
 // example_array_from();
-example_string_split();
+// example_string_split();
+example_array_push();
+example_array_unshift();
 
 function example_standard_builtin_object() {
     const str = new String("Javascript");
@@ -275,7 +277,7 @@ function example_string_indexOf() {
             }
         });
         return count;
-    }
+    };
 
     console.log(`The total count of "e" in the ${arr} is ${howManyHasE(arr)}.`);
 }
@@ -301,7 +303,7 @@ function example_array_from() {
     const distributedArr = Array.from(str);
     console.log(distributedArr);
 
-    const modifiedArr = Array.from(distributedArr, el => el * 2);
+    const modifiedArr = Array.from(distributedArr, (el) => el * 2);
     console.log(modifiedArr);
 }
 
@@ -310,11 +312,39 @@ function example_string_split() {
 Copenhagen,Denmark
 Paris,France
 Madrid,Spain
-Rome,Italy`
+Rome,Italy`;
 
-    capitals.split("\n").forEach(s => {
+    capitals.split("\n").forEach((s) => {
         const capital = s.split(",")[0];
         const country = s.split(",")[1];
         console.log(`${capital} is in ${country}`);
+    });
+}
+
+function example_array_push() {
+    const festa = ["mang"];
+    festa.push("chimmy");
+    festa.push("tata");
+    festa.push("cooky");
+    festa.push("shooky");
+    festa.push("koya");
+    festa.push("rj");
+
+    festa.forEach((name) => {
+        console.log(name);
+    });
+}
+
+function example_array_unshift() {
+    const festa = ["mang"];
+    festa.unshift("chimmy");
+    festa.unshift("tata");
+    festa.unshift("cooky");
+    festa.unshift("shooky");
+    festa.unshift("koya");
+    festa.unshift("rj");
+
+    festa.forEach((name) => {
+        console.log(name);
     });
 }
