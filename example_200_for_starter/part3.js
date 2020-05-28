@@ -16,8 +16,9 @@
 // example_string_toLowerCase_and_toUpperCase();
 // example_array_from();
 // example_string_split();
-example_array_push();
-example_array_unshift();
+// example_array_push();
+// example_array_unshift();
+example_array_length();
 
 function example_standard_builtin_object() {
     const str = new String("Javascript");
@@ -347,4 +348,26 @@ function example_array_unshift() {
     festa.forEach((name) => {
         console.log(name);
     });
+}
+
+function example_array_length() {
+    const ship = {
+        max: 4,
+        passengers: [],
+        onBoard: function(name) {
+            if (this.passengers.length === 4) {
+                console.log(`This ship is full. ${name} can not board this ship.`);
+            } else {
+                this.passengers.push(name);
+                console.log(`${name} boarded.`);
+            }
+        }
+    }
+
+    ship.onBoard("chloe");
+    ship.onBoard("jay");
+    ship.onBoard("david");
+    ship.onBoard("asher");
+    ship.onBoard("daniel");
+    console.log(ship.passengers);
 }
