@@ -18,7 +18,8 @@
 // example_string_split();
 // example_array_push();
 // example_array_unshift();
-example_array_length();
+// example_array_length();
+example_array_concat();
 
 function example_standard_builtin_object() {
     const str = new String("Javascript");
@@ -354,15 +355,17 @@ function example_array_length() {
     const ship = {
         max: 4,
         passengers: [],
-        onBoard: function(name) {
+        onBoard: function (name) {
             if (this.passengers.length === 4) {
-                console.log(`This ship is full. ${name} can not board this ship.`);
+                console.log(
+                    `This ship is full. ${name} can not board this ship.`
+                );
             } else {
                 this.passengers.push(name);
                 console.log(`${name} boarded.`);
             }
-        }
-    }
+        },
+    };
 
     ship.onBoard("chloe");
     ship.onBoard("jay");
@@ -370,4 +373,16 @@ function example_array_length() {
     ship.onBoard("asher");
     ship.onBoard("daniel");
     console.log(ship.passengers);
+}
+
+function example_array_concat() {
+    const prevList = [1, 2, 3];
+    const currentList = [4, 5, 6];
+    const nextList = [7, 8, 9];
+
+    console.log(prevList.concat(currentList));
+    console.log(prevList.concat(currentList, nextList));
+
+    console.log(["array"].concat("concat"));
+    console.log(["array"].concat("concat", "Javascript 200"));
 }
