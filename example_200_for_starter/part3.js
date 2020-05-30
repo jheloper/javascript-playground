@@ -19,7 +19,8 @@
 // example_array_push();
 // example_array_unshift();
 // example_array_length();
-example_array_concat();
+// example_array_concat();
+example_array_join();
 
 function example_standard_builtin_object() {
     const str = new String("Javascript");
@@ -385,4 +386,17 @@ function example_array_concat() {
 
     console.log(["array"].concat("concat"));
     console.log(["array"].concat("concat", "Javascript 200"));
+}
+
+function example_array_join() {
+    const dialogue = [
+        "Fear is the path to the dark side",
+        "Fear leads to anger",
+        "Anger leads to hate",
+        "Hate leads to suffering",
+        "I sense much fear in you."
+    ];
+
+    console.log(dialogue.join(". "));
+    console.log(dialogue.join(".\n"));
 }
