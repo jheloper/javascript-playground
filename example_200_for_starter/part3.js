@@ -20,7 +20,9 @@
 // example_array_unshift();
 // example_array_length();
 // example_array_concat();
-example_array_join();
+// example_array_join();
+example_array_pop();
+example_array_shift();
 
 function example_standard_builtin_object() {
     const str = new String("Javascript");
@@ -399,4 +401,22 @@ function example_array_join() {
 
     console.log(dialogue.join(". "));
     console.log(dialogue.join(".\n"));
+}
+
+function example_array_pop() {
+    const arr = [1, 2, 3];
+
+    console.log(arr.pop());
+    console.log(arr.pop());
+    console.log(arr.pop());
+    console.log(arr.pop());
+}
+
+function example_array_shift() {
+    const arr = [1, 2, 3];
+
+    console.log(arr.shift());
+    console.log(arr.shift());
+    console.log(arr.shift());
+    console.log(arr.shift());
 }
