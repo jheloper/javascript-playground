@@ -21,8 +21,9 @@
 // example_array_length();
 // example_array_concat();
 // example_array_join();
-example_array_pop();
-example_array_shift();
+// example_array_pop();
+// example_array_shift();
+example_array_slice();
 
 function example_standard_builtin_object() {
     const str = new String("Javascript");
@@ -396,7 +397,7 @@ function example_array_join() {
         "Fear leads to anger",
         "Anger leads to hate",
         "Hate leads to suffering",
-        "I sense much fear in you."
+        "I sense much fear in you.",
     ];
 
     console.log(dialogue.join(". "));
@@ -419,4 +420,11 @@ function example_array_shift() {
     console.log(arr.shift());
     console.log(arr.shift());
     console.log(arr.shift());
+}
+
+function example_array_slice() {
+    const arr = ["melon", "lemon", "source", "apple", "juice"];
+
+    console.log(`not fruits element is ${arr.slice(2, 3)} and ${arr.slice(4, 5)}.`);
+    console.log(arr.slice(0, 10));
 }
