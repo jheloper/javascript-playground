@@ -23,7 +23,8 @@
 // example_array_join();
 // example_array_pop();
 // example_array_shift();
-example_array_slice();
+// example_array_slice();
+example_array_splice();
 
 function example_standard_builtin_object() {
     const str = new String("Javascript");
@@ -427,4 +428,13 @@ function example_array_slice() {
 
     console.log(`not fruits element is ${arr.slice(2, 3)} and ${arr.slice(4, 5)}.`);
     console.log(arr.slice(0, 10));
+}
+
+function example_array_splice() {
+    const fruits = ["melon", "lemon", "source", "apple", "juice"];
+
+    fruits.splice(4, 1);
+    fruits.splice(4, 0, "grape");
+    fruits.splice(2, 1, "mandarin", "strawberry", "watermelon");
+    console.log(fruits);
 }
